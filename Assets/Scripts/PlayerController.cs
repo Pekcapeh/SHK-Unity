@@ -5,15 +5,15 @@ public class PlayerController : MonoBehaviour
 {
     public float Speed;
     public bool Timer;
-    public float Time;
+    public float TimeBalence;
     
     void Update()
     {
         if (Timer)
         {
-            Time -= UnityEngine.Time.deltaTime;
+            TimeBalence -= Time.deltaTime;
 
-            if(Time < 0)
+            if(TimeBalence < 0)
             {
                 Timer = false;
                 Speed /= 2;
@@ -23,8 +23,7 @@ public class PlayerController : MonoBehaviour
         GameObject[] result = GameObject.FindGameObjectsWithTag("Enemy");
 
         if(result.Length == 0)
-        {
-            GameController.controller.End();
+        {            
             enabled = false;
         }
 
@@ -41,7 +40,7 @@ public class PlayerController : MonoBehaviour
             transform.Translate(Speed * UnityEngine.Time.deltaTime, 0, 0);
     }
 
-    public void SendMEssage(GameObject b)
+    public void SendMessage()
     {
         if (b.name == "Enemy")
         {
@@ -52,7 +51,7 @@ public class PlayerController : MonoBehaviour
         {
             Speed *= 2;
             Timer = true;
-            Time = 2;
+            TimeBalence = 2;
         }
     }
 }
