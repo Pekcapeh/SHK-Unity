@@ -17,4 +17,12 @@ public class Enemy : MonoBehaviour
         if (transform.position == Target)
             Target = Random.insideUnitCircle * 4;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Player>())
+        {
+            Destroy(gameObject);
+        }
+    }
 }

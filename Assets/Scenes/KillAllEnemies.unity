@@ -120,12 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &141422275 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4058105593115031585, guid: ae2818f3668ac0644b9ba8d41c1426d0,
-    type: 3}
-  m_PrefabInstance: {fileID: 4058105593251518178}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,13 +307,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd6d0074e725a114e850d2e604fe4b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  go: {fileID: 1761935009}
-  a: {fileID: 1761935009}
-  B:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 141422275}
-  - {fileID: 0}
 --- !u!1001 &828041938
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -465,16 +452,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -3098894868097797932, guid: ae2818f3668ac0644b9ba8d41c1426d0,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -3098894868097797932, guid: ae2818f3668ac0644b9ba8d41c1426d0,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 4058105593115031585, guid: ae2818f3668ac0644b9ba8d41c1426d0,
         type: 3}
       propertyPath: m_Name
@@ -534,6 +511,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3098894868097797932, guid: ae2818f3668ac0644b9ba8d41c1426d0,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -3098894868097797932, guid: ae2818f3668ac0644b9ba8d41c1426d0,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae2818f3668ac0644b9ba8d41c1426d0, type: 3}
@@ -629,12 +616,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1761935009}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dede9e7d6741aea4cb07b98da83cc6a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 48228d64bb99c494996340b0e149572b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 4
-  Timer: 0
-  Time: 0
 --- !u!50 &1761935013
 Rigidbody2D:
   serializedVersion: 4
