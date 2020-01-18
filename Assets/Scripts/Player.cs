@@ -5,18 +5,8 @@ public class Player : MonoBehaviour
 {
     private float _speed = 4;    
     
-    void Update()
+    private void Update()
     {
-        if (Input.GetKey(KeyCode.W))
-            transform.Translate(0, _speed * Time.deltaTime, 0);
-
-        if (Input.GetKey(KeyCode.S))
-            transform.Translate(0, -_speed * Time.deltaTime, 0);
-
-        if (Input.GetKey(KeyCode.A))
-            transform.Translate(-_speed * Time.deltaTime, 0, 0);
-
-        if (Input.GetKey(KeyCode.D))
-            transform.Translate(_speed * Time.deltaTime, 0, 0);
+        transform.Translate(Input.GetAxis("Horizontal") * _speed * Time.deltaTime, Input.GetAxis("Vertical") * _speed * Time.deltaTime, 0);
     }   
 }
