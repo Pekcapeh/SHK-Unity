@@ -19,16 +19,16 @@ public class Enemy : MonoBehaviour
             TargetMove();
     }
 
+    public void TargetMove()
+    {
+        _target = Random.insideUnitCircle * 4;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent<Player>(out Player player))
         {
             Destroy(gameObject);
         }
-    }
-
-    public void TargetMove()
-    {
-        _target = Random.insideUnitCircle * 4;
     }
 }
