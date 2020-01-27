@@ -1,38 +1,36 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private GameObject _endScreen;
-    private float _speed = 4;
+    [SerializeField] private float _speed = 4;
     private float _time  = 0;
-    private float _moveHorizontal;
-    private float _moveVertical;
-    
+    private float _startSpeed;
+
+    public event UnityAction<Enemy> EnemyDestroyed;
+
+    private void Start()
+    {
+        _startSpeed = _speed;
+    }
+
     private void Update()
     {
         CheckTimer();
 
-        _moveHorizontal = Input.GetAxis("Horizontal") * _speed * Time.deltaTime;
-        _moveVertical = Input.GetAxis("Vertical") * _speed * Time.deltaTime;
-        transform.Translate(_moveHorizontal, _moveVertical, 0);
+        float moveHorizontal = Input.GetAxis("Horizontal") * _speed * Time.deltaTime;
+        float moveVertical = Input.GetAxis("Vertical") * _speed * Time.deltaTime;
+        transform.Translate(moveHorizontal, moveVertical, 0);
     }
 
-    private void SearchEnemy()
-    {
-        if (FindObjectsOfType<Enemy>().Length == 0 )
-        {
-            _endScreen.GetComponent<EndScreen>().ShowEnd();
-        }
-    }
-
-    private void AddBounce()
+    private void AddBounce(float bounсeMultiplayer, float bounсeTime)
     {        
         if (_time == 0)
-            _speed *= 2;
+            _speed *= bounсeMultiplayer;
         
-        _time += 2;
+        _time += bounсeTime;
     }
 
     private void CheckTimer()
@@ -47,16 +45,15 @@ public class Player : MonoBehaviour
     private void DeleteBounce()
     {
         _time = 0;
-        _speed /= 2;
+        _speed = _startSpeed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Enemy enemy))
         {
+            EnemyDestroyed?.Invoke(enemy);
             Destroy(enemy.gameObject);
         }
-
-        SearchEnemy();
     }
 }
