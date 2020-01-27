@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EndScreen : MonoBehaviour
 {
-    public void ShowEnd()
+    public void Show()
     {
         gameObject.SetActive(true);
     }

@@ -34,7 +34,7 @@ public class EndGame : MonoBehaviour
     {
         if (_enemies.Count == 0)
         {
-            _endScreen.ShowEnd();
+            _endScreen.Show();
         }
     }
 }

@@ -9,18 +9,18 @@ public class Enemy : MonoBehaviour
         
     private void Start()
     {
-        MoveTarget();
+        _target = ChangeTarget();
     }
         
     private void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, _target, _speed * Time.deltaTime);
         if (transform.position == _target)
-            MoveTarget();
+            _target = ChangeTarget();
     }
 
-    public void MoveTarget()
+    public Vector3 ChangeTarget()
     {
-        _target = Random.insideUnitCircle * 4;
+        return Random.insideUnitCircle * 4;
     }    
 }
