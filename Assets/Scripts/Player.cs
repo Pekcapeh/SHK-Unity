@@ -7,41 +7,35 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _endScreen;
     private float _speed = 4;
     private float _time  = 0;
-    private bool _timer = false;
     private float _moveHorizontal;
     private float _moveVertical;
-
-
+    
     private void Update()
     {
-        Timer();
+        CheckTimer();
 
         _moveHorizontal = Input.GetAxis("Horizontal") * _speed * Time.deltaTime;
         _moveVertical = Input.GetAxis("Vertical") * _speed * Time.deltaTime;
         transform.Translate(_moveHorizontal, _moveVertical, 0);
-
-        SearchEnemy();
     }
 
     private void SearchEnemy()
     {
-        if (!FindObjectOfType<Enemy>())
+        if (FindObjectsOfType<Enemy>().Length == 0 )
         {
-            _endScreen.GetComponent<EndScreen>().End();
+            _endScreen.GetComponent<EndScreen>().ShowEnd();
         }
     }
 
     private void AddBounce()
-    {
-        _time += 2;
-
-        if (_timer == false)
+    {        
+        if (_time == 0)
             _speed *= 2;
-
-        _timer = true;
+        
+        _time += 2;
     }
 
-    private void Timer()
+    private void CheckTimer()
     {        
         if (_time > 0)
         _time -= Time.deltaTime;
@@ -54,6 +48,15 @@ public class Player : MonoBehaviour
     {
         _time = 0;
         _speed /= 2;
-        _timer = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out Enemy enemy))
+        {
+            Destroy(enemy.gameObject);
+        }
+
+        SearchEnemy();
     }
 }

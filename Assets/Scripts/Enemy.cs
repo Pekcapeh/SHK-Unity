@@ -9,26 +9,18 @@ public class Enemy : MonoBehaviour
         
     private void Start()
     {
-        TargetMove();
+        MoveTarget();
     }
         
     private void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, _target, _speed * Time.deltaTime);
         if (transform.position == _target)
-            TargetMove();
+            MoveTarget();
     }
 
-    public void TargetMove()
+    public void MoveTarget()
     {
         _target = Random.insideUnitCircle * 4;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.TryGetComponent<Player>(out Player player))
-        {
-            Destroy(gameObject);
-        }
-    }
+    }    
 }
