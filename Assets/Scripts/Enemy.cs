@@ -9,17 +9,17 @@ public class Enemy : MonoBehaviour
         
     private void Start()
     {
-        _target = ChangeTarget();
+        _target = GetTarget();
     }
         
     private void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, _target, _speed * Time.deltaTime);
         if (transform.position == _target)
-            _target = ChangeTarget();
+            _target = GetTarget();
     }
 
-    public Vector3 ChangeTarget()
+    public Vector3 GetTarget()
     {
         return Random.insideUnitCircle * 4;
     }    
