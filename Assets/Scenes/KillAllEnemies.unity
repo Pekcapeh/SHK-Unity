@@ -919,7 +919,7 @@ PrefabInstance:
     - target: {fileID: -5579067844386876138, guid: 7d8d9fd186f48b64fa67255650562eda,
         type: 3}
       propertyPath: _bounceMultyplayer
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2245675272754730007, guid: 7d8d9fd186f48b64fa67255650562eda,
         type: 3}
