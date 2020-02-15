@@ -12,7 +12,6 @@ public class SpeedBounce : MonoBehaviour
         if (collision.TryGetComponent(out Player player))
         {
             StartCoroutine(TimeLiveBounce(player));
-            TimeLiveBounce(player);
         }
     }
 

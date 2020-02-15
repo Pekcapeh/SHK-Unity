@@ -11,12 +11,12 @@ public class EndGame : MonoBehaviour
 
     private void OnEnable()
     {
-        _player.EnemyDestroyed += OnEnemyDestroу;
+        _player.EnemyDestroyed += OnEnemyDestroуed;
     }
 
     private void OnDisable()
     {
-        _player.EnemyDestroyed -= OnEnemyDestroу;
+        _player.EnemyDestroyed -= OnEnemyDestroуed;
     }
 
     private void Start()
@@ -24,13 +24,13 @@ public class EndGame : MonoBehaviour
         _enemies = new List<Enemy>(_enemyContainer.GetComponentsInChildren<Enemy>());
     }
 
-    private void OnEnemyDestroу(Enemy enemy)
+    private void OnEnemyDestroуed(Enemy enemy)
     {
         _enemies.Remove(enemy);
-        CheckEnemy();
+        CheckCountEnemy();
     }
        
-    private void CheckEnemy()
+    private void CheckCountEnemy()
     {
         if (_enemies.Count == 0)
         {
