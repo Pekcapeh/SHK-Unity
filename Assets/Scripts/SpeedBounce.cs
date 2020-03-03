@@ -11,11 +11,11 @@ public class SpeedBounce : MonoBehaviour
     {
         if (collision.TryGetComponent(out Player player))
         {
-            StartCoroutine(TimeLiveBounce(player));
+            StartCoroutine(TimeOfActionBounce(player));
         }
     }
 
-    private IEnumerator TimeLiveBounce(Player player)
+    private IEnumerator TimeOfActionBounce(Player player)
     {
         player.AddBounce(_bounceMultyplayer);
         RemoveBounce();
