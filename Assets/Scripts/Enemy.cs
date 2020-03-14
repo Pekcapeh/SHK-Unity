@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private float _speed = 2;
+    [SerializeField] private int _radiusCircle = 4;
+    [SerializeField] private float _speed = 2;
     private Vector3 _target;
         
     private void Start()
@@ -21,6 +22,6 @@ public class Enemy : MonoBehaviour
 
     public Vector3 CreateTarget()
     {
-        return Random.insideUnitCircle * 4;
+        return Random.insideUnitCircle * _radiusCircle;
     }    
 }

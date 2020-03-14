@@ -11,9 +11,9 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        Vector3 deltaPosition = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);       
-        deltaPosition *= _speed * Time.deltaTime;
-        transform.Translate(deltaPosition);
+        Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);       
+        direction *= _speed * Time.deltaTime;
+        transform.Translate(direction);
     }
 
     public void AddBounce(float bounсeMultiplayer)
